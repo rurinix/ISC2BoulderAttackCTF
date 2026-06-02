@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>http://www.tastybtes.ctf/</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="http://www.tastybtes.ctf" />
+    </url>
+    <url>
+        <loc>http://www.tastybtes.ctf/index.html</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="http://www.tastybtes.ctf" />
+    </url>
+    <url>
+        <loc>http://www.tastybtes.ctf/about.html</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="http://www.tastybtes.ctf" />
+    </url>
+    <url>
+        <loc>http://www.tastybtes.ctf/login.php</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="http://www.tastybtes.ctf" />
+    </url>
+</urlset>

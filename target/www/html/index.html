@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Tasty Bytes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, maximum-scale=5">
+        <meta name="robots" content="index, follow">
+        <title>Tasty Bytes</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+	<div id="full-page">
+        <header class="redbox">
+           <nav>
+                <button id="burger_btn" class="hamburger hamburger--squeeze" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+                <h1>Tasty Bytes</h1>
+                <ul id="menu_bar">
+                    <li><span class="selected">Home</span></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="body-container">
+            <h2 class="ribbon"><span class="ribbon-content">Recipe of the Day</span></h2>
+            <div class="flex_box_large boundbox">
+                <div class="redbox  parchment">
+                    <h3>Golden Hash Browns</h3>
+                    <div><img src="img/hashbrown.jpeg" class="photo" id="hash"></div>
+                    <p>
+                        Today's recipe are the crispiest, most golden Hash Browns you will ever sink
+                        your teeth into.  Sharpen your knife and oil your pan as we fry up a little 
+                        slice of heaven. 
+                    </p>
+                    <h3>Directions</h3>
+                    <ol>
+                        <li>Slice onions and potatoes in thin Julian strips.  Rinse under cold water and pat dry with paper towels.</li>
+                        <li>Heat skillet to medium and coat with butter.</li>
+                        <li>Season potato and onion mix before adding to pan.</li>
+                        <li>Cook for 5-10 minutes, ensuring the potato/onion mix has carmelized to a crust before flipping.  Cook another 5 minute or until golden brown</li>
+                    </ol>
+                </div>
+                <div class="whitebox  parchment">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li id="potato">2 Russet Potatoes</li>
+                        <li id="onion">.5 Yellow Onion</li>
+                        <li id="butter">3 Tbsp Butter</li>
+                        <li>1 tsp Salt</li>
+                        <li id="pepper">1 tsp Black Pepper</li>
+                    </ul>
+                    <form>
+                        <label for="GuestCount">Number of Servings</label>
+                        <select id="GuestCount">
+                            <option value="1">1 serving</option>
+                            <option value="2">2 servings</option>
+                            <option value="3">3 servings</option>
+                            <option value="4">4 servings</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </main>
+	</div>
+        <script src="js/jquery.js"></script>
+        <script defer src="js/custom.js"></script>
+        <script>
+            const select = document.getElementById('GuestCount');
+            const potatoText = document.getElementById('potato');
+            const onionText = document.getElementById('onion');
+            const butterText = document.getElementById('butter');
+            const pepperText = document.getElementById('pepper');
+            const potato = 2;
+            const onion = .5;
+            const butter = 3;
+            const pepper = 1;
+
+
+            function update() {
+                const multiplier = select.selectedIndex + 1;
+                const xpotato = potato * multiplier;
+                const xonion = onion * multiplier;
+                const xbutter = butter * multiplier;
+                const xpepper = pepper * multiplier;
+
+                if (xpotato <= 1) {
+                    potatoText.textContent = `${xpotato.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " Russet Potato";
+                }
+                else {
+                    potatoText.textContent = `${xpotato.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " Russet Potatoes";
+                }
+
+                if (xonion <= 1) {
+                        onionText.textContent = `${xonion.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " Yellow Onion";
+                }
+                else {
+                    onionText.textContent = `${xonion.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " Yellow Onions";
+                }
+
+                butterText.textContent = `${xbutter.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " Tbsp Butter";
+
+                pepperText.textContent = `${xpepper.toLocaleString(undefined, {maximumFractionDigits: 10})}` + " tsp Black Pepper";
+                
+            }
+
+            select.addEventListener('change', update);
+            update();
+        </script>
+
+    </body>
+<html>

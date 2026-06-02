@@ -1,0 +1,22 @@
+$TTL    86400 
+@   IN  SOA ns.isc2boulder.ctf. admin.isc2boulder.ctf. (
+                  2024010101 ; Serial
+                  604800     ; Refresh
+                  86400      ; Retry
+                  2419200    ; Expire
+                  604800 )   ; Negative Cache TTL
+
+@       IN  NS      ns.isc2boulder.ctf.
+@       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+*       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+ns      IN  A       192.168.1.10
+@       IN  A       192.168.1.10
+ns      IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+
+rtr     IN  A       192.168.1.1	
+rtr     IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+www     IN  A       192.168.1.25
+www     IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+
+start   IN  A       192.168.1.20
+start   IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"

@@ -1,0 +1,19 @@
+$TTL    86400
+@   IN  SOA ns.tastybytes.ctf. admin.tastybytes.ctf. (
+                  2024010101 ; Serial
+                  604800     ; Refresh
+                  86400      ; Retry
+                  2419200    ; Expire
+                  604800 )   ; Negative Cache TTL
+
+@       IN  NS      ns.tastybytes.ctf.
+@       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+*       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+ns      IN  A       192.168.1.10
+ns      IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+@       IN  A       192.168.1.25
+*       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+www     IN  A       192.168.1.25
+www     IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"
+ssh     IN  A       192.168.1.33
+*       IN  TXT     "CTF{F1rst-St0p-64DA6CC0}"

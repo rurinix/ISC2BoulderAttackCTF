@@ -1,0 +1,49 @@
+# =========================
+# macOS system files
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# macOS directories
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# =========================
+# Windows system files
+# =========================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# Windows recycle bin
+$RECYCLE.BIN/
+
+# Windows installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# =========================
+# Common editor / OS temp files
+# =========================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# =========================
+# Network / filesystem metadata
+# =========================
+.nfs*
+.directory
+
+nods.sh

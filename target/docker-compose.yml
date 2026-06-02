@@ -1,0 +1,130 @@
+
+services:
+
+#NginX Web server stanza
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: always
+#    build: ./nginx
+#    user: "101:101"
+    ports:
+      - "80:80"
+#      - "443:443"
+    volumes:
+      # www files are webroot -> /var/www/html (read only)
+      - ./www:/var/www:ro
+      # default.conf file -> /etc/nginx/conf.d/default.conf (read-write for service configs)
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro 
+      # logs -> /var/log/nginx
+      - ./nginx/logs:/var/log/nginx
+    tmpfs:
+      - /tmp/nginx
+    depends_on:
+      - php
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 50            # prevent fork bombs
+    mem_limit: 256m           # prevent memory exhaustion
+    cpus: "0.5"               # limit CPU abuse
+    networks:
+      public-vlan:
+        ipv4_address: 192.168.1.25
+
+  php:
+    build: ./php 
+    container_name: php
+    restart: always
+    user: "82:82"
+    volumes:
+      # www files are webroot -> /var/www/html (read only)
+      - ./www:/var/www:ro
+    env_file:
+      - .env 
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: '${MYSQL_DATABASE}'
+      DB_USERNAME: '${MYSQL_USER}'
+      DB_PASSWORD: '${MYSQL_PASSWORD}'
+    depends_on:
+      mysql:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 50            # prevent fork bombs
+    mem_limit: 256m           # prevent memory exhaustion
+    cpus: "0.5"               # limit CPU abuse
+    networks:
+      public-vlan:
+        ipv4_address: 192.168.1.26
+      internal:
+
+  mysql:
+    image: mysql:8.4
+    container_name: mysql
+    restart: always
+    env_file:
+       - .env
+    environment:
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d  
+      - ./mysql/csv:/var/lib/mysql-files:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 50            # prevent fork bombs
+    mem_limit: 256m           # prevent memory exhaustion
+    cpus: "0.5"               # limit CPU abuse
+    networks:
+      - internal
+
+  ssh:
+    build: ./ssh
+    container_name: ssh
+    restart: always
+    ports:
+      - "22:22"
+    volumes:
+      - ./ssh/home:/home/Todd:ro
+      - ./ssh/logs:/var/log/:rw
+    tmpfs:
+      - /tmp:size=64m,noexec    # writable /tmp but no execution
+    read_only: false
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 50            # prevent fork bombs
+    mem_limit: 256m           # prevent memory exhaustion
+    cpus: "0.5"               # limit CPU abuse
+    networks:
+      public-vlan:
+        ipv4_address: 192.168.1.33
+
+volumes:
+  db-data:
+
+networks:
+  public-vlan:
+    driver: ipvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
+  internal:
+    driver: bridge
+    internal: true
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 - File Not Found</title>
+<style>
+  body { background: #1a1a1a; color: #d4d4d4; font-family: monospace; }
+  .err-body { background: #1a1a1a; color: #d4d4d4; font-family: monospace; padding: 20px; min-height: 400px; border-radius: 8px; }
+  .err-title { color: #4488ff; font-size: 1.2em; }
+  .trace { background: #2a2a2a; padding: 15px; border-left: 3px solid #4488ff; margin: 10px 0; }
+  .highlight { color: #ffaa00; }
+  .small { color: #888; font-size: 0.85em; }
+  .dim { color: #666; }
+</style>
+</head>
+<body>
+<div class="err-body">
+  <h1 class="err-title">&#128269; 404 Not Found</h1>
+  <p>The requested resource could not be located on this server.</p>
+
+  <div class="trace">
+    <p>nginx/1.24.0 (Ubuntu) at <span class="highlight">tastybytes.ctf</span> Port 80</p>
+    <br>
+    <p>Request log:</p>
+    <p>[warn] AH01797: resource not found:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;URI: <span class="highlight" id="uri">/???</span></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Method: <span class="highlight">GET</span></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Referrer: <span class="highlight">http://tastybytes.ctf/</span></p>
+    <br>
+    <p>Filesystem resolution failed:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Root: <span class="highlight">/var/www/html</span></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Resolved path: <span class="highlight" id="fspath">/var/www/html/???</span></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;Result: <span class="highlight">ENOENT: no such file or directory</span></p>
+  </div>
+
+  <p class="small dim">Stack trace:</p>
+  <p class="small">#0 stat(<span class="highlight" id="fspath2">/var/www/html/???</span>)</p>
+  <p class="small">#1 resolve_uri() in <span class="highlight">ngx_http_core_module.c</span> on line 492</p>
+  <p class="small">#2 ngx_http_handler() → ngx_http_core_run_phases()</p>
+  <p class="small">#3 {main}</p>
+  <br>
+  <p class="small">Hint: Return to <span class="highlight"><a href="/" style="color:#ffaa00;">index.html</a></span> or check the URL for typos.</p>
+  <p>Please contact your system administrator.</p>
+</div>
+<script>
+  const path = window.location.pathname || '/unknown';
+  document.getElementById('uri').textContent = path;
+  document.getElementById('fspath').textContent = '/var/www/html' + path;
+  document.getElementById('fspath2').textContent = '/var/www/html' + path;
+</script>
+</body>
+</html>

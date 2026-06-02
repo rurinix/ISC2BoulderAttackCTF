@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /js/
+Disallow: /cgi-bin/
+Disallow: /backup/
+Allow: /
+Sitemap: http://www.tastybytes.ctf/sitemap.xml
+Host: tastybytes.ctf

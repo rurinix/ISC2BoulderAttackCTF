@@ -1,0 +1,22 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openssh-server \
+    less \
+    vim \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -rm -d /home/Todd -s /bin/bash -u 1001 Todd && \
+    echo 'Todd:1Pass2Rule@ll!' | chpasswd
+
+# Harden sshd_config
+RUN mkdir -p /var/run/sshd
+COPY sshd_config /etc/ssh/sshd_config
+
+# Regenerate host keys at build time
+RUN ssh-keygen -A
+
+EXPOSE 22
+CMD /usr/sbin/sshd -D -e 2>/var/log/sshd.log
