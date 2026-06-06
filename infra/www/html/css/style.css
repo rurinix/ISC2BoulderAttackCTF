@@ -233,10 +233,19 @@ main ol li {
 
 main li {
     margin: .5em 0;
+    line-height: 1.25rem;
 }
 
 main li::marker {
     color:var(--primary-isc2-color);
+}
+
+main li strong {
+    font-size: 1rem;
+    background-color: rgb(149, 214, 0, 75%);
+    padding: .15rem .5rem;
+    border-radius: .5rem;
+    border: 1px solid var(--primary-isc2-color);
 }
 
 main em {
@@ -478,6 +487,7 @@ input {
     font-family: var(--mono-font);
     color: #006852;
     text-shadow: 0 0 1px #fff;
+    font-weight: 600;
 }
 
 .note {
