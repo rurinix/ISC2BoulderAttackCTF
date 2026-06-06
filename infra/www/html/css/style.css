@@ -107,6 +107,7 @@ tr:nth-child(even) {
 
 table tbody tr td:first-child {
     font-family: var(--mono-font);
+    font-weight: 600;
 }
 
 main h1 {
