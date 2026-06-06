@@ -146,7 +146,7 @@ Upon connection to the network, the player will know the following:
 
 ##### Linux / MacOS
 
-> `dig @192.168.1.10 -x 192.168.1.10`
+> `dig @192.168.1.10 -x 192.168.1.10 ANY`
 >
 > `dig @192.168.1.10 any isc2boulder.ctf`
 
