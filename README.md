@@ -30,13 +30,13 @@ The network can be brought to an event and stood up to run the CTF competition a
 - Set username and password
 - Set system hostname *Change screen resolution with* `sudo dpkg-reconfigure console-setup` *and selecting* `UTF-8` *then* `Guess optimal` *then* `Terminus` *and* `16x32`
 
-> `sudo nmtui`
->
-> `set system hostname`
->
 > `sudo vi /etc/hosts`
-
 *Change hostname list in the row for local host (last row) (i.e.* `127.0.0.1 ctf-infra`*)*
+
+> `sudo nmtui`
+- Set system network settings
+> `set system hostname`
+*Use same hostname that was used in `/etc/hosts`*
 
 > `sudo shutdown -r now`
 
