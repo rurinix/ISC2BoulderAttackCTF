@@ -78,7 +78,7 @@ $total_flags = $conn->query("SELECT COUNT(*) FROM flags")->fetch_row()[0];
                                         </tr>
                                         <tr>
                                             <td>
-                                                192.168.1.12
+                                                192.168.1.20
                                             </td>
                                             <td>
                                                 The flag reporting portal (this website)

@@ -50,13 +50,13 @@
                         <div>
                             <label for="name">Name: </label>
                             <div class="input_field">
-                                <input required type="text" name="name" id="player_name">
+                                <input required type="text" name="name" id="player_name" autocomplete="off">
                             </div>
                         </div>
                         <div>
                             <label for="password">Password: </label>
                             <div class="input_field">
-                                <input required type="password" name="password" id="password">
+                                <input required type="password" name="password" id="password" autocomplete="off">
                             </div>
 		                </div>
                         <input type="hidden" name="validated" id="validated" value="false">
@@ -77,7 +77,10 @@
 			if (strtolower(htmlspecialchars(strip_tags($validated))) == 'yes' || strtolower(htmlspecialchars(strip_tags($validated))) == 'true' || strtolower(htmlspecialchars(strip_tags($validated))) == '1') {
 				pre_r("CTF{But-n0t-inviz-336064D4}");
 			}
-			else {
+			elseif ($submitted_name === "Todd" && $submitted_password === "1Pass2Rule@ll!") {
+                p_r("Password Expired");
+            }
+            else {
 				p_r("Invalid Credentials");
 			}
 
@@ -141,9 +144,9 @@ function pre_r( $array ) {
 }
 
 function p_r( $array ) {
-  echo '<p class="centered">';
+  echo '<p class="centered"><span class="red-font">';
   print_r ($array);
-  echo '</p>';
+  echo '</span></p>';
 }
 
 $conn->close(); 

@@ -97,7 +97,7 @@ if (isset($stmt)) { $stmt->close(); }
                                 <div>
                                     <label>Flag: </label>
                                     <div class="input_field flag">
-                                        <input required type="text" name="flag" id="flag">
+                                        <input required type="text" name="flag" id="flag" autocomplete="off" required>
                                     </div>
                                 </div>
                                 </div>

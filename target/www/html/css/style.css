@@ -318,7 +318,13 @@ footer div {
 
 .mono-font {
         font-family: ui-monospace, Consolas, 'Courier New', Courier, 'Lucida Console', monospace;
+		color: #006852;
+		font-weight: 600;
     }
+
+.red-font {
+	color: #7D0009;
+}
 
 .monolog {
 	clear: both	;
