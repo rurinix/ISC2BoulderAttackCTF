@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>500 - Internal Server Error</title>
+    <style>
+        body { background: #1a1a1a; color: #d4d4d4; font-family: monospace; padding: 20px; }
+        .error { color: #ff4444; font-size: 1.2em; }
+        .trace { background: #2a2a2a; padding: 15px; border-left: 3px solid #ff4444; margin: 10px 0; }
+        .highlight { color: #ffaa00; }
+    </style>
+</head>
+<body>
+    <h1 class="error">&#9888; 500 Internal Server Error</h1>
+    <p>The server encountered an unexpected condition. Debug trace:</p>
+
+    <div class="trace">
+        <p>Fatal error: Uncaught PDOException: SQLSTATE[HY000] [2002]</p>
+        <p>Connection refused in <span class="highlight">/var/www/html/cgi-bin/connect.php</span> on line 14</p>
+        <br>
+        <p>Stack trace:</p>
+        <p>#0 PDO::__construct(<span class="highlight">'mysql:host=192.168.1.25;dbname=tastybytes'</span>,</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">'Todd'</span>,</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">'1Pass2Rule@ll!'</span>)</p>
+        <p>#1 /var/www/html/index.php(8): require()</p>
+        <p>#2 {main}</p>
+        <br>
+        <p>thrown in <span class="highlight">/var/www/html/cgi-bin/connect.php</span> on line 14</p>
+    </div>
+
+    <p>Please contact your system administrator.</p>
+</body>
+</html>

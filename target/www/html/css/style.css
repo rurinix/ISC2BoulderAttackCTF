@@ -307,20 +307,23 @@ footer div {
    padding: 2em;
    margin: 1em auto 4em;
    font-size: .75em;
-			text-align: center;
-			width: 80%;
-			max-width: 80ch;
+	text-align: center;
+	width: 80%;
+	max-width: 80ch;
 }
 
 #ContactUs {
-		font-size: 2.5rem;	
+	font-size: 2.5rem;	
 }
 
 .mono-font {
-        font-family: ui-monospace, Consolas, 'Courier New', Courier, 'Lucida Console', monospace;
-		color: #006852;
-		font-weight: 600;
-    }
+    font-family: ui-monospace, Consolas, 'Courier New', Courier, 'Lucida Console', monospace;
+	font-weight: 600;
+}
+
+.green-font {
+	color: #006852;
+}
 
 .red-font {
 	color: #7D0009;

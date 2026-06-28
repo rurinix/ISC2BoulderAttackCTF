@@ -73,15 +73,10 @@
             $show_table = 0;
 
 	        echo '<div class="whitebox parchment">';
-            
+            p_r("Unexpected Error at <span class=\"mono-font\">\\cgi-bin\\auth.php</span>");
+
 			if (strtolower(htmlspecialchars(strip_tags($validated))) == 'yes' || strtolower(htmlspecialchars(strip_tags($validated))) == 'true' || strtolower(htmlspecialchars(strip_tags($validated))) == '1') {
 				pre_r("CTF{But-n0t-inviz-336064D4}");
-			}
-			elseif ($submitted_name === "Todd" && $submitted_password === "1Pass2Rule@ll!") {
-                p_r("Password Expired");
-            }
-            else {
-				p_r("Invalid Credentials");
 			}
 
 			if ($_SERVER['REQUEST_METHOD'] != "POST" && (isset($submitted_name) || isset($submitted_password))) {
@@ -138,7 +133,7 @@
 <?php 
 
 function pre_r( $array ) {
-  echo '<p class="centered"><span class="mono-font">';
+  echo '<p class="centered"><span class="mono-font green-font">';
   print_r ($array);
   echo '</span></p>';
 }
