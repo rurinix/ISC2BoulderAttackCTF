@@ -77,6 +77,7 @@ if (isset($stmt)) { $stmt->close(); }
                         </button>
                         <ul id="menu_bar">
                             <li><a href="index.php">Start</a></li>
+                            <li><a href="scenario.php">Scenario</a></li>
                             <li><span class="selected">Submit</span></li>
                             <li><a href="leaderboard.php">Leaderboard</a></li>
                         </ul>

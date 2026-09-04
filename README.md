@@ -4,6 +4,9 @@
 The network can be brought to an event and stood up to run the CTF competition autonomously once initialized. No internet is required during the event. New features and scenarios can be added in a modular way, as long as the contributor complies with the IP scheme and provide their flags in the `flags.ctf` format.
 
 ## Infrastructure
+Infastrucutre is dependent on which target campaign is spun up.  Target campaigns are chosen by the `docker-compose.yml` file instantiated for the target pi.
+
+### Web Target
 
 | IP | Device Type | Description |
 | --- | --- | --- |

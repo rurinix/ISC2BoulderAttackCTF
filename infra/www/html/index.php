@@ -32,6 +32,7 @@ $total_flags = $conn->query("SELECT COUNT(*) FROM flags")->fetch_row()[0];
                         </button>
                         <ul id="menu_bar">
                             <li><span class="selected">Start</span></li>
+                            <li><a href="scenario.php">Scenario</a></li>
                             <li><a href="submit.php">Submit</a></li>
                             <li><a href="leaderboard.php">Leaderboard</a></li>
                         </ul>
@@ -43,12 +44,12 @@ $total_flags = $conn->query("SELECT COUNT(*) FROM flags")->fetch_row()[0];
                 <h1>Capture The Flag</h1>
                 <div class="boundbox">
                     <p>
-                            The CTP resides on a local, isolated network intended to allow players to 
-                            sharpen their skills following the MITRE ATT&CK framework.  A total of 
-                            <strong class="mono-font"><?= htmlspecialchars($total_flags) ?></strong> flags 
-                            have been scattered throughout the network environment.  Use your ingenuity 
-                            to identify the target systems, explore their contents, manipulate what you 
-                            have access to, and get them to reveal their secrets.
+                        The CTF resides on a local, isolated network intended to allow players to 
+                        sharpen their skills following the MITRE ATT&CK framework.  A total of 
+                        <strong class="mono-font"><?= htmlspecialchars($total_flags) ?></strong> flags 
+                        have been scattered throughout the network environment.  Use your ingenuity 
+                        to identify the target systems, explore their contents, manipulate what you 
+                        have access to, and get them to reveal their secrets.
                     </p>
                     <p class="note">
                         No dedication pen-testing tools are needed to find any flag, but having them would help.
@@ -96,7 +97,7 @@ $total_flags = $conn->query("SELECT COUNT(*) FROM flags")->fetch_row()[0];
                                 </table>
                             <li>No DoS / DDoS attacks</li>
                             <li>No potentially destructive attacks</li>
-                            <li>All activities must stay within the CTP WiFi network</li>
+                            <li>All activities must stay within the CTF WiFi network</li>
                         </ol> 
                         <?php include '/var/www/disclaimer.html'; ?>
                     </div>

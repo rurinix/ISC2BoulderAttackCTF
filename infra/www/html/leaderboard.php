@@ -47,6 +47,7 @@ $result = $conn->query($query);
                         </button>
                         <ul id="menu_bar">
                             <li><a href="index.php">Start</a></li>
+                            <li><a href="scenario.php">Scenario</a></li>
                             <li><a href="submit.php">Submit</a></li>
                             <li><span class="selected">Leaderboard</span></li>
                         </ul>
