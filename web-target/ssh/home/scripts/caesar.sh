@@ -26,8 +26,14 @@ shift_string() {
 }
 
 if [[ -z "$1" ]]; then
-    read -p "Enter string: " input
-    read -p "Enter offset (default 1): " offset
+    while [[ $input = "" ]]
+    do
+        read -p "Enter string: " input
+    done
+    while [[ ! $offset =~ ^[+-]?[0-9]+$ ]]
+    do
+        read -p "Enter offset (default 1): " offset
+    done
     shift_string "$input" "${offset:-1}"
 else
     shift_string "$1" "${2:-1}"
