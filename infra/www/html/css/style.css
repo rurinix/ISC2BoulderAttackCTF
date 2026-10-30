@@ -7,6 +7,15 @@
 }
 
 :root {
+    --isc2-cornflower: #5866ab;
+    --isc2-cornflower-dark: #3C4C95;
+    --isc2-cornflower-highlight: #818EC8;
+    --isc2-green: #40904f;
+    --isc2-green-dark: #247632;
+    --isc2-green-highlight: #6AAF76;
+    --isc2-lime: #a2c153;
+    --isc2-lime-dark: #7F9E2E;
+    --isc2-lime-highlight: #CDE788;
     --primary-isc2-color: #006852;
     --secondary-isc2-color: #95d600;
     --primary-isc2-font: 'Gill Sans', Verdana, Geneva, sans-serif; 
@@ -45,7 +54,7 @@ body ::selection{
 }
 
 a {
-	color: var(--primary-isc2-color);
+	color: var(--isc2-green-dark);
 	transition-property: color;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
@@ -55,7 +64,7 @@ a {
 }
 
 a:hover, a:focus {
-	color: #0C7D64;
+	color: var(--isc2-green);
 }
 
 p {
@@ -67,13 +76,13 @@ p {
 }
 
 h1,h2,h3,h4,h5,h6, th {
-    color: var(--primary-isc2-color);
+    color: var(--isc2-cornflower-dark);
 	font-family: var(--secondary-isc2-font); 
     display: block;
     text-align: center;
     margin: 0 auto;
     padding: 0 2rem;
-    border-bottom: #464646 3px double;
+    border-bottom: var(--isc2-cornflower-dark) 3px double;
     max-width: 90%;
     width: max-content;
 }
@@ -82,12 +91,11 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  min-width: 50ch;
 }
 
 .table-header {
     font-weight: 600;
-    background-color: var(--primary-isc2-color);
+    background-color: var(--isc2-cornflower);
     color: #f8f8f8;
 }
 
@@ -96,13 +104,13 @@ table {
 }
 
 td, th {
-  border: 1px solid var(--primary-isc2-color);
+  border: 1px solid var(--isc2-cornflower-dark);
   text-align: left;
   padding: .5rem;
 }
 
 tr:nth-child(even) {
-  background-color: rgb(149, 214, 0, 50%);
+  background-color: var(--isc2-lime-highlight);
 }
 
 table tbody tr td:first-child {
@@ -145,11 +153,11 @@ header {
 	top: 0;
 	z-index: 100;
 	box-shadow: 0 -10px 35px  90px #f8f8f8;
-    background-color: var(--primary-isc2-color);
-    background: -webkit-linear-gradient(#006852, #00513F);
-    background: -o-linear-gradient(#006852, #00513F);
-    background: -moz-linear-gradient(#006852, #00513F);
-    background: linear-gradient(#006852, #00513F);
+    background-color: var(--isc2-cornflower);
+    background: -webkit-linear-gradient(var(--isc2-cornflower), var(--isc2-cornflower-dark));
+    background: -o-linear-gradient(var(--isc2-cornflower), var(--isc2-cornflower-dark));
+    background: -moz-linear-gradient(var(--isc2-cornflower), var(--isc2-cornflower-dark));
+    background: linear-gradient(var(--isc2-cornflower), var(--isc2-cornflower-dark));
 }
 
 nav {
@@ -161,10 +169,11 @@ nav {
 nav a {
 	color: #f8f8f8;
     text-decoration: none; 
+    text-shadow: 0 0 1px #000;
 }
 
 nav a:hover, nav a:focus {
-    color: var(--secondary-isc2-color);
+    color: var(--isc2-lime-highlight);
 }
 
 .hamburger{
@@ -185,7 +194,8 @@ nav a:hover, nav a:focus {
 }
 
 .selected {
-    text-shadow: 0 0 #fff;
+    color: var(--secondary-highlight-color);
+    text-shadow: 0 0 1px #000;
 }
 
 #chapter-logo {
@@ -212,9 +222,9 @@ main p {
 }
 
 main a {
-	font-family: var(--primary-isc2-font);
+	font-family: var(--isc2-green-dark);
     font-weight: 500;
-    text-shadow: 0 0 1px #B4F028;
+    text-shadow: 0 0 1px #fff;
 }
 
 main ul {
@@ -228,7 +238,7 @@ main ol {
 
 main ol li {
     font-weight: 600;
-    color: var(--primary-isc2-color);
+    color: var(--isc2-cornflower-dark);
     font-size: 1.25rem;
 }
 
@@ -238,15 +248,16 @@ main li {
 }
 
 main li::marker {
-    color:var(--primary-isc2-color);
+    color:var(--isc2-cornflower-dark);
 }
 
 main li strong {
     font-size: 1rem;
-    background-color: rgb(149, 214, 0, 75%);
+    background-color: var(--isc2-lime-highlight);
     padding: .15rem .5rem;
     border-radius: .5rem;
     border: 1px solid var(--primary-isc2-color);
+    color: #000;
 }
 
 main em {
@@ -277,7 +288,7 @@ label {
 }
 
 .input_field {
-    border: 2px solid var(--secondary-isc2-color);
+    border: 2px solid var(--isc2-lime);
     border-radius: 5px;
     line-height: 1.5em;
     padding: 3px;
@@ -290,10 +301,10 @@ label {
 
 .flag::before, .flag::after{
     color: var(--primary-isc2-color);
-    border: 2px solid var(--secondary-isc2-color);
+    border: 2px solid var(--isc2-lime);
     border-radius: 5px;
     line-height: 1.25rem;
-    background-color: rgb(149, 214, 0, 50%);
+    background-color: var(--isc2-lime-highlight);
     padding: 0 3px;
 }
 
@@ -353,11 +364,11 @@ input {
 
 .calloutbox {
     background-color: #fff;
-    border: var(--secondary-isc2-color) 2px solid;
+    border: var(--isc2-lime) 2px solid;
     border-radius: 10px;
     max-width: 80ch;
     padding: 1em 1.5em;
-    box-shadow: .5em .5em 0px 0px rgb(149, 214, 0, 50%);
+    box-shadow: .5em .5em 0px 0px var(--isc2-lime-highlight);
 }
 
 .calloutbox p {
@@ -371,13 +382,13 @@ input {
 .button {
     margin: 1em auto;
     color: #f8f8f8;
-    background-color: var(--primary-isc2-color);
-    border: #00513F 1px solid;
+    background-color: var(--isc2-cornflower);
+    border: var(--isc2-cornflower-dark) 1px solid;
     border-radius: .5em;
     padding: 1em 1.5em;
     width: 90%;
     text-align: center;
-	transition-property: color, background-color, border-radius;
+	transition-property: color, border-color, background-color, border-radius;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
     display: block;
@@ -385,7 +396,8 @@ input {
 
 .button:hover, .button:focus {
 	color: #fff;
-    background-color: #0C7D64;
+    background-color: var(--isc2-cornflower-highlight);
+    border-color: var(--isc2-cornflower);
     border-radius: 2em;
 }
 
@@ -485,22 +497,22 @@ input {
     font-size: 1.25rem;
     font-weight: 600;
     padding: 0 .5rem;
-    color: var(--primary-isc2-color);
+    color: var(--isc2-green-dark);
 }
 
 .mono-font {
     font-family: var(--mono-font);
-    color: #006852;
+    color: var(--isc2-green-dark);
     text-shadow: 0 0 1px #fff;
     font-weight: 600;
 }
 
 .note {
-    background-color: rgb(149, 214, 0, 50%);
-    border: 2px solid var(--secondary-isc2-color);
+    background-color: var(--isc2-lime-highlight);
+    border: 2px solid var(--isc2-lime);
     border-radius: 1rem;
     max-width: 80ch;
-    color: var(--primary-isc2-color);
+    color: #000;
     font-size: .75rem;
     padding: .25rem .5rem;
     text-align: center;
@@ -527,7 +539,7 @@ input {
 
 .disclaimer {
     background-color: #eaeaea;
-    border-left: 5px var(--secondary-isc2-color) solid;
+    border-left: 5px var(--isc2-lime) solid;
     font-size: .75em;
     padding: .75em 1.5em;
     margin: 3rem auto 1rem auto;
@@ -606,6 +618,10 @@ input {
         text-align: left;
     }
 
+    table {
+        min-width: 50ch;
+    }
+
     .flex_box_large {
 		justify-content: space-evenly;
 	}
@@ -648,7 +664,7 @@ input {
     }
 
     .calloutbox {
-        box-shadow: 1em 1em 0px 0px rgb(149, 214, 0, 50%);
+        box-shadow: 1em 1em 0px 0px var(--isc2-lime-highlight);
     }
 
     .button {
